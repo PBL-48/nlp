@@ -53,9 +53,9 @@ class ModifiedSentence(Sentence):
 
     @classmethod
     def modify_sentence(cls, sentence: Sentence) -> "ModifiedSentence":
-        modified_tokens = [ModifiedToken.modify_token(token) for token in sentence.word_list]
-        sentence_length = len(modified_tokens)
-        conj_effect = 1.0
+        modified_tokens: List[ModifiedToken] = [ModifiedToken.modify_token(token) for token in sentence.word_list]
+        sentence_length: int = len(modified_tokens)
+        conj_effect: float = 1.0
         for i in range(sentence_length):
             modified_tokens[i].conj_effect = conj_effect
             # ここはいい感じに
@@ -78,7 +78,7 @@ class ModifiedSentence(Sentence):
 
     def calc_sentence_score(self) -> float:
         self._calc_each_token_score()
-        sentence_score = 0
+        sentence_score: float = 0
         for token in self.modified_tokens:
             sentence_score += token.token_score
         return sentence_score
