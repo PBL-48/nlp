@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List, Optional, Self
 
 # CONJ_EFFECTの変数名は適当
 from config import CONJ_EFFECT
@@ -17,12 +17,18 @@ class Token:
     objectivity: Optional[float] = None
     experience_or_evaluation: Optional[int] = None
 
+    def __str__(self: Self) -> str:
+        return self.word
+
 
 @dataclass
 class Sentence:
     id: int = -1
     text: str = ""
     word_list: List[Token] = field(default_factory=list)  # word_list というフィールド名
+
+    def __str__(self: Self):
+        return self.text
 
 
 @dataclass
@@ -32,7 +38,7 @@ class ModifiedToken(Token):
     conj_effect: float = 1.0
     token_score: float = 0.0
 
-    def calc_token_score(self) -> None:
+    def calc_token_score(self: Self) -> None:
         self.token_score = (
             self.polarity
             * self.denied_effect

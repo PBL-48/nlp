@@ -29,7 +29,7 @@ def load_data(data_file: str = DATA_FILE_PATH) -> List[Sentence]:
 def load_polarity_dict(
     dictionary_file1: str = POLARITY_DICT_PATH1,
     dictionary_file2: str = POLARITY_DICT_PATH2,
-) -> dict[str, list[list[str]]]:
+) -> dict[str, list[list]]:
     """極性辞書を読み込む関数"""
     polarity_dict = {}
     with open(dictionary_file1, "r", encoding="utf-8") as f:
