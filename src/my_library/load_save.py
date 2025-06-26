@@ -1,17 +1,11 @@
-import json
-from typing import List, Dict, Any
-from data_models import Sentence, Token
+from typing import Dict, List
+
 from config import (
-    deny,
-    emphasis,
-    objectivity,
-    experience_or_evaluation,
-    conjunction,
     DATA_FILE_PATH,
     POLARITY_DICT_PATH1,
     POLARITY_DICT_PATH2,
-    OUTPUT_FILE_PATH,
 )
+from data_models import Sentence
 
 
 def load_data(data_file: str = DATA_FILE_PATH) -> List[Sentence]:
