@@ -38,7 +38,7 @@ def load_polarity_dict(
 ) -> Dict[str, int]:
     """極性辞書を読み込む関数"""
     polarity_dict = {}
-    with open(dictionary_file1, "r") as f:
+    with open(dictionary_file1, "r", encoding="utf-8") as f:
         for line in f:
             line = line.strip().split("\t")
             if line:
@@ -64,7 +64,7 @@ def load_polarity_dict(
                 else:
                     polarity_dict[line[0]].append([line[1], None, line[3], 1, line[0]])
 
-    with open(dictionary_file2, "r") as f:
+    with open(dictionary_file2, "r", encoding="utf-8") as f:
         for line in f:
             line = line.strip().split("\t")
             if len(line) != 2:
