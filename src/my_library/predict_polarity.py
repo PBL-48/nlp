@@ -1,16 +1,24 @@
+from typing import List
 from data_models import Token, Sentence, ModifiedToken, ModifiedSentence
 # 閾値の変数名は適当
 from config import UNDER_THRESHOLD, UPPER_THRESHOLD
 
 class Predictor():
-    def __init__(self, sentence: Sentence):
-        self.modified_sentence = ModifiedSentence.modify_sentence(sentence)
+    def __init__(self, sentences: List[Sentence]):
+        self.modified_sentences: List[ModifiedSentence] = \
+            [ModifiedSentence.modify_sentence(sentence) for sentence in sentences]
 
-    def predict_polarity(self) -> str:
-        total_score = self.modified_sentence.calc_sentence_score()
-        if total_score < UNDER_THRESHOLD:
-            return "negative"
-        elif total_score > UPPER_THRESHOLD:
-            return "positive"
-        else:
-            return "neutral"
+    def predict_polarity(self) -> List[str]:
+        total_scores: List[float] = \
+            [modified_sentence.calc_sentence_score() for modified_sentence in self.modified_sentences]
+        judges: List[str] = []
+        for total_score in total_scores:
+            judge: str = ""
+            if total_score < UNDER_THRESHOLD:
+                judge = "negative"
+            elif total_score > UPPER_THRESHOLD:
+                judge = "positive"
+            else:
+                judge = "neutral"
+            judges.append(judge)
+        return judges
