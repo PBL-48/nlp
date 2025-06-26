@@ -1,11 +1,17 @@
-from typing import Dict, List
-
+import json
+from typing import List, Dict, Any
+from data_models import Sentence, Token
 from config import (
+    deny,
+    emphasis,
+    objectivity,
+    experience_or_evaluation,
+    conjunction,
     DATA_FILE_PATH,
     POLARITY_DICT_PATH1,
     POLARITY_DICT_PATH2,
+    OUTPUT_FILE_PATH,
 )
-from data_models import Sentence
 
 
 def load_data(data_file: str = DATA_FILE_PATH) -> List[Sentence]:
@@ -34,9 +40,9 @@ def load_polarity_dict(
     polarity_dict = {}
     with open(dictionary_file1, "r", encoding="utf-8") as f:
         for line in f:
-            line_list = line.strip().split("\t")
-            if line_list:
-                line_list[1] = (
+            line = line.strip().split("\t")
+            if line:
+                line[1] = (
                     line[1]
                     .replace("?", "")
                     .replace("a", "e")
