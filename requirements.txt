@@ -1,0 +1,7 @@
+numpy==1.20.0
+pytest==8.2.2
+scikit-learn==0.24.1
+zstandard
+janome
+logzero
+chardet
