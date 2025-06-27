@@ -1,7 +1,7 @@
 from janome.tokenizer import Tokenizer
 
 from my_library.data_models import Sentence, Token
-from my_library.load_save import load_data
+from my_library.load_save import load_data, load_polarity_dict
 
 
 def tokenize_sentence() -> list[Sentence]:
@@ -13,7 +13,7 @@ def tokenize_sentence() -> list[Sentence]:
         sentence.word_list = [
             Token(
                 word=token.surface,
-                polarity=1,
+                polarity=0,
                 part_of_speech=token.part_of_speech.split(","),
                 not_effect_value=1,
                 emphasis_effect_value=1,
@@ -24,3 +24,39 @@ def tokenize_sentence() -> list[Sentence]:
         ]
         return_list.append(sentence)
     return return_list
+
+
+def get_words_info(sentence: Sentence) -> list[Token]:
+    """辞書にある情報を入力する。"""
+    polarity_dict = load_polarity_dict()
+    word_list = sentence.word_list
+    if not word_list:
+        return None
+    i = 0
+    while i < len(word_list):
+        applied = False
+        for key, values in polarity_dict.items():
+            for value in values:
+                seq_len = value[3] if isinstance(value[3], int) else 1
+                if seq_len < 1:
+                    seq_len = 1
+                if i + seq_len > len(word_list):
+                    continue
+                match = True
+                for j in range(seq_len):
+                    if word_list[i + j].word != value[4 + j]:
+                        match = False
+                        break
+                if match:
+                    word_list[i].polarity = value[0]
+                    word_list[i].experience_or_evaluation = value[1]
+                    word_list[i].objectivity = value[2]
+                    applied = True
+                    break
+            if applied:
+                break
+        if applied:
+            i += seq_len
+        else:
+            i += 1
+    return word_list
