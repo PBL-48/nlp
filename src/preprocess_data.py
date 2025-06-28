@@ -26,7 +26,7 @@ def tokenize_sentence() -> list[Sentence]:
     return return_list
 
 
-def get_words_info(sentence: Sentence) -> list[Token]:
+def get_words_info(sentence: Sentence) -> list[Token] | None:
     """辞書にある情報を入力する。"""
     polarity_dict = load_polarity_dict()
     word_list = sentence.word_list
@@ -35,7 +35,7 @@ def get_words_info(sentence: Sentence) -> list[Token]:
     i = 0
     while i < len(word_list):
         applied = False
-        for key, values in polarity_dict.items():
+        for _, values in polarity_dict.items():
             for value in values:
                 seq_len = value[3] if isinstance(value[3], int) else 1
                 if seq_len < 1:
