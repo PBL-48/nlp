@@ -1,5 +1,11 @@
 from janome.tokenizer import Tokenizer
 
+from my_library.config import (
+    EMPHASIS_EFFECT,
+    EXPERIENCE_OR_EVALUATION,
+    NOT_EFFECT,
+    OBJECTIVITY,
+)
 from my_library.data_models import Sentence, Token
 from my_library.load_save import load_data, load_polarity_dict
 
@@ -26,12 +32,10 @@ def tokenize_sentence() -> list[Sentence]:
     return return_list
 
 
-def get_words_info(sentence: Sentence) -> list[Token] | None:
+def get_words_info(sentence: Sentence) -> Sentence:
     """辞書にある情報を入力する。"""
     polarity_dict = load_polarity_dict()
     word_list = sentence.word_list
-    if not word_list:
-        return None
     i = 0
     while i < len(word_list):
         applied = False
@@ -59,4 +63,29 @@ def get_words_info(sentence: Sentence) -> list[Token] | None:
             i += seq_len
         else:
             i += 1
-    return word_list
+    return sentence
+
+
+def get_config_data(sentence: Sentence) -> Sentence:
+    """config.pyに記載の内容を入力する。"""
+    for token in sentence.word_list:
+        for data in NOT_EFFECT:
+            if token.word in data:
+                token.not_effect_value = -1
+        for data in EMPHASIS_EFFECT:
+            if token.word in data:
+                token.emphasis_effect_value = data[token.word]
+        for data in EXPERIENCE_OR_EVALUATION:
+            if token.word in data:
+                token.emphasis_effect_value = data[token.word]
+        for data in OBJECTIVITY:
+            if token.word in data:
+                token.objectivity = data[token.word]
+    return sentence
+
+
+def preprocess_data() -> list[Sentence]:
+    """結果的にはこれを実行すればよい。"""
+    return [
+        get_config_data(get_words_info(sentence)) for sentence in tokenize_sentence()
+    ]
