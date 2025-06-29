@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "text": "こんにちは1",
+        "word_list": [
+            {
+                "word": "こんにちは",
+                "polarity": 1,
+                "part_of_speech": "名詞",
+                "not_effect_value": 1,
+                "emphasis_effect_value": 1,
+                "objectivity": 1,
+                "experience_or_evaluation": 1
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "text": "こんにちは2",
+        "word_list": [
+            {
+                "word": "こんにちは",
+                "polarity": 1,
+                "part_of_speech": "名詞",
+                "not_effect_value": 1,
+                "emphasis_effect_value": 1,
+                "objectivity": 1,
+                "experience_or_evaluation": 1
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "text": "こんにちは3",
+        "word_list": [
+            {
+                "word": "こんにちは",
+                "polarity": 1,
+                "part_of_speech": "名詞",
+                "not_effect_value": 1,
+                "emphasis_effect_value": 1,
+                "objectivity": 1,
+                "experience_or_evaluation": 1
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "text": "こんにちは4",
+        "word_list": [
+            {
+                "word": "こんにちは",
+                "polarity": 1,
+                "part_of_speech": "名詞",
+                "not_effect_value": 1,
+                "emphasis_effect_value": 1,
+                "objectivity": 1,
+                "experience_or_evaluation": 1
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "text": "こんにちは5",
+        "word_list": [
+            {
+                "word": "こんにちは",
+                "polarity": 1,
+                "part_of_speech": "名詞",
+                "not_effect_value": 1,
+                "emphasis_effect_value": 1,
+                "objectivity": 1,
+                "experience_or_evaluation": 1
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "text": "こんにちは6",
+        "word_list": [
+            {
+                "word": "こんにちは",
+                "polarity": 1,
+                "part_of_speech": "名詞",
+                "not_effect_value": 1,
+                "emphasis_effect_value": 1,
+                "objectivity": 1,
+                "experience_or_evaluation": 1
+            }
+        ]
+    }
+]
