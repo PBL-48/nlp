@@ -1,8 +1,7 @@
 from typing import List
 
-# 閾値の変数名は適当
-from config import UNDER_THRESHOLD, UPPER_THRESHOLD
-from data_models import ModifiedSentence, Sentence
+from src.my_library.config import UNDER_THRESHOLD, UPPER_THRESHOLD
+from src.my_library.data_models import ModifiedSentence, Sentence
 
 
 class Predictor:

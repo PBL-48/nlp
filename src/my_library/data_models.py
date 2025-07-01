@@ -1,8 +1,7 @@
 from dataclasses import dataclass, field
 from typing import List, Optional, Self
 
-# CONJ_EFFECTの変数名は適当
-from config import CONJ_EFFECT
+from src.my_library.config import CONJ_EFFECT
 
 
 @dataclass
