@@ -10,12 +10,10 @@ class Token:
     word: str
     polarity: float
     part_of_speech: str
-    not_effect_value: float = 1  # ★修正: 'not' から変更 (Python予約語との衝突回避)★
-    emphasis_effect_value: float = (
-        1  # ★修正: 'emphasis' から変更 (Python予約語との衝突回避)★
-    )
+    not_effect_value: float = 1.0 # ★修正: 'not' から変更 (Python予約語との衝突回避)★
+    emphasis_effect_value: float = 1.0 # ★修正: 'emphasis' から変更 (Python予約語との衝突回避)★
     objectivity: Optional[float] = None
-    experience_or_evaluation: Optional[int] = None
+    experience_or_evaluation: Optional[float] = None
 
     def __str__(self: Self) -> str:
         return self.word
@@ -84,8 +82,7 @@ class ModifiedSentence(Sentence):
         conj_effect: float = 1.0
         for i in range(sentence_length):
             modified_tokens[i].conj_effect = conj_effect
-            # ここはいい感じに
-            if sentence.word_list[i].part_of_speech == "conjunction":
+            if sentence.word_list[i].part_of_speech in ["接続詞", "接続助詞"]:
                 conj_effect = CONJ_EFFECT
             if i > 0:
                 modified_tokens[i].emphasized_effect = modified_tokens[
