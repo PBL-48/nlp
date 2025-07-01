@@ -1,7 +1,9 @@
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List, Optional, Self
+
 # CONJ_EFFECTの変数名は適当
 from config import CONJ_EFFECT
+
 
 @dataclass
 class Token:
@@ -13,11 +15,18 @@ class Token:
     objectivity: Optional[float] = None
     experience_or_evaluation: Optional[float] = None
 
+    def __str__(self: Self) -> str:
+        return self.word
+
+
 @dataclass
 class Sentence:
     id: int = -1
     text: str = ""
-    word_list: List[Token] = field(default_factory=list) # word_list というフィールド名
+    word_list: List[Token] = field(default_factory=list)  # word_list というフィールド名
+
+    def __str__(self: Self):
+        return self.text
 
 
 @dataclass
@@ -27,12 +36,25 @@ class ModifiedToken(Token):
     conj_effect: float = 1.0
     token_score: float = 0.0
 
-    def calc_token_score(self) -> None:
-        self.token_score = self.polarity * self.denied_effect * self.emphasized_effect * self.conj_effect * self.objectivity * self.experience_or_evaluation
+    def calc_token_score(self: Self) -> None:
+        self.token_score = (
+            self.polarity
+            * self.denied_effect
+            * self.emphasized_effect
+            * self.conj_effect
+            * self.objectivity
+            * self.experience_or_evaluation
+        )
         return
 
     @classmethod
-    def modify_token(cls, token: Token, denied_effect: float = 1.0, emphasized_effect: float = 1.0, conj_effect: float = 1.0) -> "ModifiedToken":
+    def modify_token(
+        cls,
+        token: Token,
+        denied_effect: float = 1.0,
+        emphasized_effect: float = 1.0,
+        conj_effect: float = 1.0,
+    ) -> "ModifiedToken":
         return cls(
             word=token.word,
             polarity=token.polarity,
@@ -53,7 +75,9 @@ class ModifiedSentence(Sentence):
 
     @classmethod
     def modify_sentence(cls, sentence: Sentence) -> "ModifiedSentence":
-        modified_tokens: List[ModifiedToken] = [ModifiedToken.modify_token(token) for token in sentence.word_list]
+        modified_tokens: List[ModifiedToken] = [
+            ModifiedToken.modify_token(token) for token in sentence.word_list
+        ]
         sentence_length: int = len(modified_tokens)
         conj_effect: float = 1.0
         for i in range(sentence_length):
@@ -61,15 +85,15 @@ class ModifiedSentence(Sentence):
             if sentence.word_list[i].part_of_speech in ["接続詞", "接続助詞"]:
                 conj_effect = CONJ_EFFECT
             if i > 0:
-                modified_tokens[i].emphasized_effect = modified_tokens[i - 1].emphasis_effect_value
+                modified_tokens[i].emphasized_effect = modified_tokens[
+                    i - 1
+                ].emphasis_effect_value
             if i < sentence_length - 1:
-                modified_tokens[i].denied_effect = modified_tokens[i + 1].not_effect_value
+                modified_tokens[i].denied_effect = modified_tokens[
+                    i + 1
+                ].not_effect_value
 
-        return cls(
-            id=sentence.id,
-            text=sentence.text,
-            modified_tokens=modified_tokens
-        )
+        return cls(id=sentence.id, text=sentence.text, modified_tokens=modified_tokens)
 
     def _calc_each_token_score(self) -> None:
         for token in self.modified_tokens:
