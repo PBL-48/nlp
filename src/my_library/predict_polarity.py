@@ -11,6 +11,7 @@ class Predictor:
         ]
 
     def predict_polarity(self) -> List[str]:
+        print(f"debug[Predictor]: point1")
         total_scores: List[float] = [
             modified_sentence.calc_sentence_score()
             for modified_sentence in self.modified_sentences

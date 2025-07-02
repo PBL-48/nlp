@@ -15,7 +15,7 @@ EXPERIENCE_OR_EVALUATION = {
     "評価": 1.5,
 }
 NOT_EFFECT = {
-    "なし": 1.0,
+    "ない": -1.0,
 }
 OBJECTIVITY = {
     "客観": 1.0,
