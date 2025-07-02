@@ -15,6 +15,7 @@ class Predictor:
             modified_sentence.calc_sentence_score()
             for modified_sentence in self.modified_sentences
         ]
+        print(f"total_scores: {total_scores}")
         judges: List[str] = []
         for total_score in total_scores:
             judge: str = ""
