@@ -19,7 +19,7 @@ def load_data(data_file: str = DATA_FILE_PATH) -> List[Sentence]:
                 line = line.strip()
                 if line:
                     # sentence = Sentence(id=i, text=line, word_list=None, polarity=None)
-                    sentence = Sentence(id=i, text=line, word_list=None)
+                    sentence = Sentence(id=i, text=line)
                     sentences.append(sentence)
     except FileNotFoundError:
         print(f"Error[load_data]: {data_file}が見つからない")
