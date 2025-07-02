@@ -25,4 +25,4 @@ class Predictor:
             else:
                 judge = "neutral"
             judges.append(judge)
-        return judges
+        return total_scores

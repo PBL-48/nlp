@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import List, Optional, Self
 
-from src.my_library.config import CONJ_EFFECT
+from .config import CONJ_EFFECT
 
 
 @dataclass
