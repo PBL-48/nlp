@@ -8,9 +8,11 @@ from src.my_library.config import CONJ_EFFECT
 class Token:
     word: str
     polarity: float
-    part_of_speech: str
-    not_effect_value: float = 1.0 # ★修正: 'not' から変更 (Python予約語との衝突回避)★
-    emphasis_effect_value: float = 1.0 # ★修正: 'emphasis' から変更 (Python予約語との衝突回避)★
+    part_of_speech: list
+    not_effect_value: float = 1.0  # ★修正: 'not' から変更 (Python予約語との衝突回避)★
+    emphasis_effect_value: float = (
+        1.0  # ★修正: 'emphasis' から変更 (Python予約語との衝突回避)★
+    )
     objectivity: Optional[float] = None
     experience_or_evaluation: Optional[float] = None
 
