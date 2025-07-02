@@ -42,8 +42,7 @@ def get_words_info(sentence: Sentence) -> Sentence:
         for _, values in polarity_dict.items():
             for value in values:
                 seq_len = value[3] if isinstance(value[3], int) else 1
-                if seq_len < 1:
-                    seq_len = 1
+                seq_len = max(seq_len, 1)
                 if i + seq_len > len(word_list):
                     continue
                 match = True
