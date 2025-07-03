@@ -43,8 +43,12 @@ class ModifiedToken(Token):
             * self.denied_effect
             * self.emphasized_effect
             * self.conj_effect
-            * self.objectivity
-            * self.experience_or_evaluation
+            # * (self.objectivity if self.objectivity is not None and self.objectivity != '' else 1.0)
+            # * (self.experience_or_evaluation if self.experience_or_evaluation is not None and self.experience_or_evaluation != '' else 1.0)
+        )
+        print(f"debug[ModifiedToken]: [{self.word}] {self.token_score}]")
+        print(
+            f"debug[ModifiedToken]: [{self.polarity}] [{self.denied_effect}] [{self.emphasized_effect}] [{self.conj_effect}] [{self.objectivity}] [{self.experience_or_evaluation}]"
         )
         return
 
@@ -56,6 +60,7 @@ class ModifiedToken(Token):
         emphasized_effect: float = 1.0,
         conj_effect: float = 1.0,
     ) -> "ModifiedToken":
+        # print(f"debug[ModifiedToken]: point6{token}")#正常
         return cls(
             word=token.word,
             polarity=token.polarity,
@@ -79,6 +84,8 @@ class ModifiedSentence(Sentence):
         modified_tokens: List[ModifiedToken] = [
             ModifiedToken.modify_token(token) for token in sentence.word_list
         ]
+        # print(f"debug[ModifiedSentence]: point5{modified_tokens}")
+        print("debug[ModifiedSentence]: point5")
         sentence_length: int = len(modified_tokens)
         conj_effect: float = 1.0
         for i in range(sentence_length):
@@ -94,15 +101,23 @@ class ModifiedSentence(Sentence):
                     i + 1
                 ].not_effect_value
 
-        return cls(id=sentence.id, text=sentence.text, modified_tokens=modified_tokens)
+        return cls(
+            id=sentence.id,
+            text=sentence.text,
+            word_list=sentence.word_list,
+            modified_tokens=modified_tokens,
+        )
 
     def _calc_each_token_score(self) -> None:
         for token in self.modified_tokens:
             token.calc_token_score()
 
     def calc_sentence_score(self) -> float:
+        print(f"debug[ModifiedSentence]: point2[{self}]")
         self._calc_each_token_score()
         sentence_score: float = 0
+        print(f"debug[ModifiedSentence]: point8[{self.word_list}]")
+        print(f"debug[ModifiedSentence]: point3{self.modified_tokens}")
         for token in self.modified_tokens:
             sentence_score += token.token_score
         return sentence_score

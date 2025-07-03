@@ -1,13 +1,11 @@
-from janome.tokenizer import Tokenizer
+from janome.tokenizer import Tokenizer  # type: ignore
 
-from my_library.config import (
+from src.my_library.config import (
     EMPHASIS_EFFECT,
-    EXPERIENCE_OR_EVALUATION,
     NOT_EFFECT,
-    OBJECTIVITY,
 )
-from my_library.data_models import Sentence, Token
-from my_library.load_save import load_data, load_polarity_dict
+from src.my_library.data_models import Sentence, Token
+from src.my_library.load_save import load_data, load_polarity_dict
 
 
 def tokenize_sentence() -> list[Sentence]:
@@ -18,7 +16,7 @@ def tokenize_sentence() -> list[Sentence]:
     for sentence in load_data():
         sentence.word_list = [
             Token(
-                word=token.surface,
+                word=token.base_form,
                 polarity=0,
                 part_of_speech=token.part_of_speech.split(","),
                 not_effect_value=1,
@@ -68,18 +66,14 @@ def get_words_info(sentence: Sentence) -> Sentence:
 def get_config_data(sentence: Sentence) -> Sentence:
     """config.pyに記載の内容を入力する。"""
     for token in sentence.word_list:
-        for data in NOT_EFFECT:
-            if token.word in data:
-                token.not_effect_value = -1
-        for data in EMPHASIS_EFFECT:
-            if token.word in data:
-                token.emphasis_effect_value = data[token.word]
-        for data in EXPERIENCE_OR_EVALUATION:
-            if token.word in data:
-                token.experience_or_evaluation = data[token.word]
-        for data in OBJECTIVITY:
-            if token.word in data:
-                token.objectivity = data[token.word]
+        if token.word in NOT_EFFECT and token.experience_or_evaluation not in [
+            "経験",
+            "評価",
+        ]:
+            # dictionary1の場合にのみ適用
+            token.not_effect_value = NOT_EFFECT[token.word]
+        if token.word in EMPHASIS_EFFECT:
+            token.emphasis_effect_value = EMPHASIS_EFFECT[token.word]
     return sentence
 
 

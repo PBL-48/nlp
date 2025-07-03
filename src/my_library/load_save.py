@@ -19,7 +19,7 @@ def load_data(data_file: str = DATA_FILE_PATH) -> List[Sentence]:
                 line = line.strip()
                 if line:
                     # sentence = Sentence(id=i, text=line, word_list=None, polarity=None)
-                    sentence = Sentence(id=i, text=line, word_list=[])
+                    sentence = Sentence(id=i, text=line)
                     sentences.append(sentence)
     except FileNotFoundError:
         print(f"Error[load_data]: {data_file}が見つからない")
@@ -36,57 +36,58 @@ def load_polarity_dict(
     polarity_dict = {}
     with open(dictionary_file1, "r", encoding="utf-8") as f:
         for line in f:
-            line = line.strip().split("\t")
-            if line:
-                line[1] = (
-                    line[1]
+            elements = line.strip().split("\t")
+            if elements:
+                elements[1] = (
+                    elements[1]
                     .replace("?", "")
                     .replace("a", "e")
                     .replace("pn", "e")
                     .replace("o", "e")
                     .replace("\u3000", "e")
-                    .replace("p", str(1))
-                    .replace("n", str(-1))
-                    .replace("e", str(0))
+                    .replace("p", "1")
+                    .replace("n", "-1")
+                    .replace("e", "0")
                 )
-                line[1] = int(line[1])
-                while len(line) < 4:
-                    line.append("")
-                if line[2] != "":
-                    if line[2][-1] == "観":
-                        line[3] = line[2][-2:]
-                if line[0] not in polarity_dict:
-                    polarity_dict[line[0]] = [[line[1], None, line[3], 1, line[0]]]
+                while len(elements) < 4:
+                    elements.append("")
+                if elements[2] != "":
+                    if elements[2][-1] == "観":
+                        elements[3] = elements[2][-2:]
+                if elements[0] not in polarity_dict:
+                    polarity_dict[elements[0]] = [
+                        [int(elements[1]), None, elements[3], 1, elements[0]]
+                    ]
                 else:
-                    polarity_dict[line[0]].append([line[1], None, line[3], 1, line[0]])
+                    polarity_dict[elements[0]].append(
+                        [int(elements[1]), None, elements[3], 1, elements[0]]
+                    )
 
     with open(dictionary_file2, "r", encoding="utf-8") as f:
         for line in f:
-            line = line.strip().split("\t")
-            if len(line) != 2:
-                continue
+            elements = line.strip().split("\t")
+            if len(elements) < 5:
+                for _ in range(5 - len(elements)):
+                    elements.append("")
+            elements[2] = (
+                elements[0].split("（")[0].replace("ポジ", "1").replace("ネガ", "-1")
+            )
+            elements[3] = elements[0].split("（")[1].split("）")[0]
+            elements[4] = int(0)
+            for word in elements[1].split(" "):
+                if word != "":
+                    elements[4] += 1
+                    elements.append(word)
+            elements = elements[2:]
+            if elements[3] not in polarity_dict:
+                polarity_dict[elements[3]] = [
+                    [elements[0], int(elements[1]), None, elements[2]]
+                    + list(elements[3:])
+                ]
             else:
-                for i in range(3):
-                    line.append("")
-            line[2] = line[0].split("（")[0]
-            line[3] = line[0].split("（")[1].split("）")[0]
-            line[4] = 0
-            for i in line[1].split(" "):
-                if i == "":
-                    continue
-                else:
-                    line[4] += 1
-                    line.append(i)
-            if line[2] == "ネガ":
-                line[2] = -1
-            elif line[2] == "ポジ":
-                line[2] = 1
-            line = line[2:]
-            if line[3] not in polarity_dict:
-                polarity_dict[line[3]] = [[line[0], line[1], None, line[2]] + line[3:]]
-            else:
-                polarity_dict[line[3]].append(
-                    [line[0], line[1], None, line[2]] + line[3:]
+                polarity_dict[elements[3]].append(
+                    [elements[0], int(elements[1]), None, elements[2]]
+                    + list(elements[3:])
                 )
     print(f"実行完了[load_polarity_dict]: {dictionary_file1}と{dictionary_file2}")
     return polarity_dict

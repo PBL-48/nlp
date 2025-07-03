@@ -1,9 +1,10 @@
 import os
 import sys
+
 project_root_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root_path)
-import pytest
-from src.my_library.data_models import Token, Sentence, ModifiedToken, ModifiedSentence
+from src.my_library.data_models import ModifiedToken, Token
+
 
 class TestCalculator:
     # 各テストメソッドの前に実行されるセットアップ処理
@@ -16,7 +17,7 @@ class TestCalculator:
             not_effect_value=1.0,
             emphasis_effect_value=1.0,
             objectivity=2.0,
-            experience_or_evaluation=2.0
+            experience_or_evaluation=2.0,
         )
         self.modified_token = ModifiedToken.modify_token(token)
 
