@@ -2,9 +2,7 @@ from janome.tokenizer import Tokenizer
 
 from src.my_library.config import (
     EMPHASIS_EFFECT,
-    EXPERIENCE_OR_EVALUATION,
     NOT_EFFECT,
-    OBJECTIVITY,
 )
 from src.my_library.data_models import Sentence, Token
 from src.my_library.load_save import load_data, load_polarity_dict
