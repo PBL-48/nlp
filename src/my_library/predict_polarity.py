@@ -29,8 +29,8 @@ class Predictor:
             else:
                 judge = "neutral"
             judges.append(judge)
-        for sentence, total_score, judge_ in zip(
+        for sentence, total_score, judge in zip(
             self.modified_sentences, total_scores, judges
         ):
-            print(f"{sentence.id},{total_score}({judge_}): {sentence.text}")
+            print(f"{sentence.id},{total_score}({judge}): {sentence.text}")
         return judges
