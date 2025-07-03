@@ -38,12 +38,6 @@ class ModifiedToken(Token):
     token_score: float = 0.0
 
     def calc_token_score(self: Self) -> None:
-        print(type(self.polarity))
-        print(type(self.denied_effect))
-        print(type(self.emphasized_effect))
-        print(type(self.conj_effect))
-        print(type(self.objectivity))
-        print(type(self.experience_or_evaluation))
         self.token_score = (
             self.polarity
             * self.denied_effect
@@ -125,6 +119,5 @@ class ModifiedSentence(Sentence):
         print(f"debug[ModifiedSentence]: point8[{self.word_list}]")
         print(f"debug[ModifiedSentence]: point3{self.modified_tokens}")
         for token in self.modified_tokens:
-            print(f"debug[ModifiedSentence]: point4[{token.token_score}]")
             sentence_score += token.token_score
         return sentence_score

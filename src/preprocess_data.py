@@ -68,12 +68,16 @@ def get_words_info(sentence: Sentence) -> Sentence:
 def get_config_data(sentence: Sentence) -> Sentence:
     """config.pyに記載の内容を入力する。"""
     for token in sentence.word_list:
-        if token.word in NOT_EFFECT:
+        if token.word in NOT_EFFECT and token.experience_or_evaluation not in [
+            "経験",
+            "評価",
+        ]:
+            # dictionary1の場合にのみ適用
             token.not_effect_value = NOT_EFFECT[token.word]
         if token.word in EMPHASIS_EFFECT:
             token.emphasis_effect_value = EMPHASIS_EFFECT[token.word]
         if token.word in EXPERIENCE_OR_EVALUATION:
-            token.emphasis_effect_value = EXPERIENCE_OR_EVALUATION[token.word]
+            token.experience_or_evaluation = EXPERIENCE_OR_EVALUATION[token.word]
         if token.word in OBJECTIVITY:
             token.objectivity = OBJECTIVITY[token.word]
     return sentence
