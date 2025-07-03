@@ -33,4 +33,5 @@ class Predictor:
             self.modified_sentences, total_scores, judges
         ):
             print(f"{sentence.id},{total_score}({judge}): {sentence.text}")
+        print(total_scores)
         return judges
