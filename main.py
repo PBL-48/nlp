@@ -1,3 +1,7 @@
+
+import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 from src.my_library.data_models import ModifiedSentence
 from src.my_library.load_save import save_preprocessed_data
 from src.my_library.predict_polarity import Predictor
@@ -13,5 +17,6 @@ modified_sentences = [
 ]
 predictor = Predictor(modified_sentences)
 results = predictor.predict_polarity()
+print(results)
 for sentence, result in zip(modified_sentences, results):
     print(f"{sentence.text}:{result}")
