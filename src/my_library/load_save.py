@@ -1,14 +1,13 @@
 import json
 from typing import List
 
-from config import (
+from src.my_library.config import (
     DATA_FILE_PATH,
     OUTPUT_FILE_PATH,
     POLARITY_DICT_PATH1,
     POLARITY_DICT_PATH2,
 )
-
-from data_models import Sentence, Token
+from src.my_library.data_models import Sentence, Token
 
 
 def load_data(data_file: str = DATA_FILE_PATH) -> List[Sentence]:

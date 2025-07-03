@@ -1,13 +1,13 @@
 from janome.tokenizer import Tokenizer
 
-from my_library.config import (
+from src.my_library.config import (
     EMPHASIS_EFFECT,
     EXPERIENCE_OR_EVALUATION,
     NOT_EFFECT,
     OBJECTIVITY,
 )
-from my_library.data_models import Sentence, Token
-from my_library.load_save import load_data, load_polarity_dict
+from src.my_library.data_models import Sentence, Token
+from src.my_library.load_save import load_data, load_polarity_dict
 
 
 def tokenize_sentence() -> list[Sentence]:
@@ -18,7 +18,7 @@ def tokenize_sentence() -> list[Sentence]:
     for sentence in load_data():
         sentence.word_list = [
             Token(
-                word=token.surface,
+                word=token.base_form,
                 polarity=0,
                 part_of_speech=token.part_of_speech.split(","),
                 not_effect_value=1,
