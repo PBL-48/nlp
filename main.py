@@ -11,8 +11,5 @@ modified_sentences = [
     ModifiedSentence.modify_sentence(sentence) for sentence in preprocessed_sentences
 ]
 # print(f"debug: {preprocessed_sentences}")
-modified_sentences = [
-    ModifiedSentence.modify_sentence(sentence) for sentence in preprocessed_sentences
-]
 predictor = Predictor(modified_sentences)
 results = predictor.predict_polarity()
