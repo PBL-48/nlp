@@ -76,10 +76,6 @@ def get_config_data(sentence: Sentence) -> Sentence:
             token.not_effect_value = NOT_EFFECT[token.word]
         if token.word in EMPHASIS_EFFECT:
             token.emphasis_effect_value = EMPHASIS_EFFECT[token.word]
-        if token.word in EXPERIENCE_OR_EVALUATION:
-            token.experience_or_evaluation = EXPERIENCE_OR_EVALUATION[token.word]
-        if token.word in OBJECTIVITY:
-            token.objectivity = OBJECTIVITY[token.word]
     return sentence
 
 
