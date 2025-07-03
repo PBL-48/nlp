@@ -91,7 +91,7 @@ class ModifiedSentence(Sentence):
         for i in range(sentence_length):
             modified_tokens[i].conj_effect = conj_effect
             if sentence.word_list[i].part_of_speech[1] in ["接続詞", "接続助詞"]:
-                conj_effect = CONJ_EFFECT
+                conj_effect *= CONJ_EFFECT
             if i > 0:
                 modified_tokens[i].emphasized_effect = modified_tokens[
                     i - 1
