@@ -1,13 +1,13 @@
 import json
 from typing import List
 
-from src.my_library.config import (
+from .config import (
     DATA_FILE_PATH,
     OUTPUT_FILE_PATH,
     POLARITY_DICT_PATH1,
     POLARITY_DICT_PATH2,
 )
-from src.my_library.data_models import Sentence, Token
+from .data_models import Sentence, Token
 
 
 def load_data(data_file: str = DATA_FILE_PATH) -> List[Sentence]:
@@ -79,14 +79,16 @@ def load_polarity_dict(
                     elements[4] += 1
                     elements.append(word)
             elements = elements[2:]
+            if len(elements) == 3:
+                elements.append("")
             if elements[3] not in polarity_dict:
                 polarity_dict[elements[3]] = [
-                    [elements[0], int(elements[1]), None, elements[2]]
+                    [int(elements[0]), elements[1], None, int(elements[2])]
                     + list(elements[3:])
                 ]
             else:
                 polarity_dict[elements[3]].append(
-                    [elements[0], int(elements[1]), None, elements[2]]
+                    [int(elements[0]), elements[1], None, int(elements[2])]
                     + list(elements[3:])
                 )
     print(f"実行完了[load_polarity_dict]: {dictionary_file1}と{dictionary_file2}")

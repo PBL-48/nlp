@@ -16,6 +16,3 @@ modified_sentences = [
 ]
 predictor = Predictor(modified_sentences)
 results = predictor.predict_polarity()
-print(results)
-for sentence, result in zip(modified_sentences, results):
-    print(f"{sentence.text}:{result}")

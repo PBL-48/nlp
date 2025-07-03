@@ -1163,7 +1163,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1.5,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -1623,7 +1623,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 3.0,
                 "objectivity": "",
                 "experience_or_evaluation": null
             },
@@ -1685,7 +1685,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 1.3,
                 "objectivity": "客観",
                 "experience_or_evaluation": null
             },
@@ -2639,7 +2639,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -3209,7 +3209,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 1.3,
                 "objectivity": "客観",
                 "experience_or_evaluation": null
             },
@@ -4017,7 +4017,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 3.0,
                 "objectivity": "",
                 "experience_or_evaluation": null
             },
@@ -4107,7 +4107,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -4351,7 +4351,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 1.3,
                 "objectivity": "客観",
                 "experience_or_evaluation": null
             },
@@ -4741,7 +4741,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 1.5,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -5305,7 +5305,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1.5,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -5695,7 +5695,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 1.3,
                 "objectivity": "客観",
                 "experience_or_evaluation": null
             },
@@ -6579,7 +6579,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 1.3,
                 "objectivity": "主観",
                 "experience_or_evaluation": null
             },
@@ -6899,7 +6899,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 1.3,
                 "objectivity": "客観",
                 "experience_or_evaluation": null
             },
@@ -7589,7 +7589,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 1.3,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -8285,7 +8285,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1.5,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -9573,7 +9573,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 3.0,
                 "objectivity": "",
                 "experience_or_evaluation": null
             },
@@ -9775,7 +9775,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 0.6,
+                "emphasis_effect_value": 0.5,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -10881,7 +10881,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 1.3,
                 "objectivity": "客観",
                 "experience_or_evaluation": null
             },
@@ -11313,7 +11313,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1.5,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -12231,7 +12231,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1.5,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -12871,7 +12871,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1.5,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -13929,7 +13929,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 3.0,
                 "objectivity": "",
                 "experience_or_evaluation": null
             },
@@ -15001,7 +15001,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1.5,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -16163,7 +16163,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 1.5,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -18021,7 +18021,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 0.6,
+                "emphasis_effect_value": 0.5,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -18195,7 +18195,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 3.0,
                 "objectivity": "",
                 "experience_or_evaluation": null
             },
@@ -18313,7 +18313,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -18689,7 +18689,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1.5,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -20095,7 +20095,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1.5,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -20317,7 +20317,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 1.3,
                 "objectivity": "客観",
                 "experience_or_evaluation": null
             },
@@ -20589,7 +20589,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1.5,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -22607,7 +22607,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 1.3,
                 "objectivity": "客観",
                 "experience_or_evaluation": null
             },
@@ -22879,7 +22879,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1.5,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -23213,7 +23213,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1.5,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
@@ -23505,7 +23505,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 1.3,
                 "objectivity": "主観",
                 "experience_or_evaluation": null
             },
@@ -23735,7 +23735,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 3.0,
                 "objectivity": "",
                 "experience_or_evaluation": null
             },
@@ -24055,7 +24055,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 3.0,
                 "objectivity": "",
                 "experience_or_evaluation": null
             },
@@ -24145,7 +24145,7 @@
                     "*"
                 ],
                 "not_effect_value": 1,
-                "emphasis_effect_value": 1,
+                "emphasis_effect_value": 2.0,
                 "objectivity": 1,
                 "experience_or_evaluation": 1
             },
