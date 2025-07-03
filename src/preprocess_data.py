@@ -69,16 +69,16 @@ def get_config_data(sentence: Sentence) -> Sentence:
     """config.pyに記載の内容を入力する。"""
     for token in sentence.word_list:
         for data in NOT_EFFECT:
-            if token.word in data:
+            if token.word == data:
                 token.not_effect_value = -1
         for data in EMPHASIS_EFFECT:
-            if token.word in data:
+            if token.word == data:
                 token.emphasis_effect_value = data[token.word]
         for data in EXPERIENCE_OR_EVALUATION:
-            if token.word in data:
+            if token.word == data:
                 token.emphasis_effect_value = data[token.word]
         for data in OBJECTIVITY:
-            if token.word in data:
+            if token.word == data:
                 token.objectivity = data[token.word]
     return sentence
 
