@@ -10,8 +10,8 @@ UPPER_THRESHOLD = 0.5
 UNDER_THRESHOLD = -0.5
 # 以下エラーを解消するための改善
 EMPHASIS_EFFECT = {
-    "強調": 1.5,
-    "強調": 1.5,
+    "とても": 1.5,
+    "少し": 0.6,
 }
 EXPERIENCE_OR_EVALUATION = {
     "経験": 1.5,

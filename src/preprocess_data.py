@@ -1,13 +1,13 @@
 from janome.tokenizer import Tokenizer
 
-from .my_library.config import (
+from my_library.config import (
     EMPHASIS_EFFECT,
     EXPERIENCE_OR_EVALUATION,
     NOT_EFFECT,
     OBJECTIVITY,
 )
-from .my_library.data_models import Sentence, Token
-from .my_library.load_save import load_data, load_polarity_dict
+from my_library.data_models import Sentence, Token
+from my_library.load_save import load_data, load_polarity_dict
 
 
 def tokenize_sentence() -> list[Sentence]:
@@ -70,7 +70,7 @@ def get_config_data(sentence: Sentence) -> Sentence:
     for token in sentence.word_list:
         for data in NOT_EFFECT:
             if token.word == data:
-                token.not_effect_value = -1
+                token.not_effect_value = data[token.word]
         for data in EMPHASIS_EFFECT:
             if token.word == data:
                 token.emphasis_effect_value = data[token.word]

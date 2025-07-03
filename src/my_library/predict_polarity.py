@@ -10,8 +10,13 @@ class Predictor:
             ModifiedSentence.modify_sentence(sentence) for sentence in sentences
         ]
 
-    def predict_polarity(self) -> List[str]:
-        print(f"debug[Predictor]: point1")
+    def predict_polarity(self) -> List[float]:
+        """
+        各文の極性を予測する。
+        予測結果は、各文のスコアのリストとして返される。
+        スコアは、-1.0から1.0の範囲で、負の極性、正の極性、中立を表す。
+        """
+        print("debug[Predictor]: point1")
         total_scores: List[float] = [
             modified_sentence.calc_sentence_score()
             for modified_sentence in self.modified_sentences
